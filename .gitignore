@@ -6,3 +6,4 @@ target/
 *.xml
 .gitattributes
 .DS_Store
+src/*.class
