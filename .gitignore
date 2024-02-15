@@ -4,3 +4,5 @@ out/
 target/
 *.iml
 *.xml
+.gitattributes
+.DS_Store
