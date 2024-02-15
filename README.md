@@ -24,6 +24,6 @@ GitHub Desktop:
 Git Bash:
 1. cd into the directory you wish to clone it to.
 2. ``git clone https://github.com/Luresilon/Viss.git``
-3. cd Viss/src
-5. javac Main.java
-6. java Main
+3. ``cd Viss/src``
+5. ``javac Main.java``
+6. ``java Main``
