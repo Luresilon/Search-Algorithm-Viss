@@ -76,14 +76,12 @@ public class GenerateMap {
     public void generateRandomMaze(Cell... cell){
         this.start = null;
         this.finish = null;
-
         if(cell.length == 0){
             generateMapOfCell(new Wall(0,0));
             depthFirstSearch();
         } else {
             generateMapOfCell(cell[0]);
         }
-
         this.backup = this.support.deepCopyMap(this.map);
     }
 

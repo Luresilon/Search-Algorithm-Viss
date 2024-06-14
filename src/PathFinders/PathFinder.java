@@ -21,6 +21,7 @@ public abstract class PathFinder {
     protected ListIterator<Node> iterator = this.activeNodes.listIterator();
     protected Map<Map<Integer, Integer>, Cell> map;
     protected Map<Integer,Integer> start, finish;
+    protected int totalExploredCells = 0;
     protected int sizeX, sizeY, i = 0;
     protected boolean done, noPath;
     protected Node current;
@@ -95,6 +96,7 @@ public abstract class PathFinder {
      */
     protected void search() throws InterruptedException { }
 
+
     /**
      * This function decides where the found path should be traversed from.
      * If no start/finish set, it will go from top to bottom.
@@ -129,6 +131,7 @@ public abstract class PathFinder {
      * Function that traverses the found path and displays it.
      */
     void traverse(int x, int y) throws InterruptedException {
+        int num = 0;
         while(this.current.getY() != y || this.current.getX() != x){
             this.current = this.current.getParent();
             this.g.gridx = this.current.getX();
@@ -137,9 +140,12 @@ public abstract class PathFinder {
             this.jPanel.revalidate();
 
             Thread.sleep(50);
+            num++;
             System.out.println("Traversing: " + this.current.getX() + ", " + this.current.getY());
             if(this.current.getY() == y && x == -1){ break; }
         }
+        System.out.println(num);
+        System.out.println("Total explored cells: " + totalExploredCells); // Print total number of explored cells
     }
 
     /**
@@ -213,6 +219,7 @@ public abstract class PathFinder {
         Cell c = this.map.get(Collections.singletonMap(x,y));
 //        setExplored();
         if(!c.finished() && !c.started()) {
+            totalExploredCells++;
             this.g.gridx=x;
             this.g.gridy=y;
             this.jPanel.add(new Explored(x,y),g);

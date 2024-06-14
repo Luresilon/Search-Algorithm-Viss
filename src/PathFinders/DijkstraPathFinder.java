@@ -37,7 +37,7 @@ public class DijkstraPathFinder extends PathFinder {
             // Checks and expands into all active nodes.
             Thread.sleep(10);
             this.iterator = this.activeNodes.listIterator();
-            Node nodeWithLowestCost = null;
+//            Node nodeWithLowestCost = null;
             double lowestCost = Double.MAX_VALUE;
             while (iterator.hasNext()) {
                 Node n = iterator.next();
@@ -57,18 +57,18 @@ public class DijkstraPathFinder extends PathFinder {
 
                 // Select the node with the lowest cost to expand next
                 if (n.getCost() < lowestCost) {
-                    nodeWithLowestCost = n;
+//                    nodeWithLowestCost = n;
                     lowestCost = n.getCost();
                 }
             }
 
             // Finish if there is no path from the start to the end
-            if (nodeWithLowestCost == null) {
-                this.noPath = true;
-                break;
-            }
+//            if (nodeWithLowestCost == null) {
+//                this.noPath = true;
+//                break;
+//            }
 
-            this.current = nodeWithLowestCost;
+//            this.current = nodeWithLowestCost;
         }
     }
 

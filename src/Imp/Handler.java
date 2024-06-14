@@ -79,16 +79,12 @@ public class Handler {
      */
     public void stop(){
         if(this.movementT != null && this.movementT.isAlive()){this.movementT.interrupt();}
-
         removeExplored();
         this.generateMap.constructField();
-
         changeSelectedCellsBack();
-
         Label l = (Label) this.componentMap.get("timer");
         l.setText("Timer: 0");
         l.setForeground(Color.RED);
-
         this.enableButtons();
         this.mapPanel.revalidate();
     }
